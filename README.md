@@ -1,5 +1,8 @@
 <h1>AngularJS + Express Full Stack Generator + Ionic</h1>
-E-commerce web application to buy sushis. Design responsive (optimal for mobile devices). By using <a href="https://cordova.apache.org/">Cordova</a>, the application can easily be deployed as a native application on mobiles.
+E-commerce web application to buy sushis. By using <a href="https://cordova.apache.org/">Cordova</a>, the application can easily be deployed as a native application on mobiles.
+<br/>
+<h2>Demo</h2>
+Heroku + Express. <a href="http://sushi-mobile.herokuapp.com/#/">Test</a> application from heroku server. (Designed for mobile devices!!)
 
 <h2>Technologies</h2>
 
