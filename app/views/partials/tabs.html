@@ -1,0 +1,19 @@
+<ion-tabs tabs-style="tabs-icon-top" tabs-type="tabs-default">
+
+
+  <ion-tab title="Carte" icon="icon ion-ios7-search-strong" href="#/tab/categories">
+    <ion-nav-view name="categories-tab"></ion-nav-view>
+  </ion-tab>
+
+
+  <ion-tab data-ng-controller="CartTabCtrl" badge="itemsNumber" badge-style="badge-calm animated{{shouldAnimate ? ' pulse' : ''}}" title="Panier" ng-animat="" icon="icon ion-bag " href="#/tab/panier">
+    <ion-nav-view name="cart-tab"></ion-nav-view>
+  </ion-tab>
+
+
+  <ion-tab title="Boutiques" icon="icon ion-ios7-location" href="#/tab/boutiques">
+    <ion-nav-view name="boutiques-tab"></ion-nav-view>
+  </ion-tab>
+
+
+</ion-tabs>

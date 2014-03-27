@@ -1,0 +1,14 @@
+<ion-view title="Carte">
+  <ion-content has-header="true" has-tabs="true" has-bouncing="false">
+      <div class="list">
+
+          <a class="item item-thumbnail-left" ng-repeat="category in categories" href="#/tab/categories/{{category.id}}">
+              <img ng-src="{{category.image}}" class="rounded">
+              <h2>{{category.title}}</h2>
+              <p>{{category.description}}</p>
+          </a>
+
+        </div>
+
+  </ion-content>
+</ion-view>

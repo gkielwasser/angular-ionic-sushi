@@ -1,0 +1,37 @@
+<ion-view title="Panier" left-buttons="leftButtons">
+    <ion-content has-header="true" has-tabs="true" has-bouncing="false">
+        <div ng-show="items.length > 0">
+            <ul class="list">
+                <li class="item item-thumbnail-left item-button-right" ng-repeat="item in items">
+                    <img ng-src="{{item.image}}" class="rounded hover">
+                    <h2>{{item.title}}</h2>
+                    {{item.quantity}} x {{item.price| number : 2}}€
+                    <h2 style="position: absolute;right: 10px;top:40px">{{item.quantity*item.price| number : 2}} €</h2>
+                    <div style="position: absolute;right: 10px;top:10px"><i class="ion-ios7-trash-outline hover" style="font-size: 25px" ng-click="removeItem(item.id)"></i></div>
+                    <quantity item="item" cart="true"></quantity>
+                </li>
+            </ul>
+            <div class="row">
+                <div class="col">
+                    <h3>Total:</h3>
+                </div>
+                <div class="col">
+                    <h3 style="font-weight: bold;text-align: right">{{getTotal() | number : 2}} €</h3>
+
+                </div>
+            </div>
+            <div class="row">
+                <a class="button button-balanced button-block" href="#/command/location" style="width: 100%">
+                    Commander
+                </a>
+            </div>
+
+        </div>
+        <div ng-hide="items.length > 0" style="text-align: center;">
+            <h3 style="margin: 15px 0 0 0;">aucun article</h3>
+            <div class="row">
+                <a class="button button-calm button-block" href="#/tab/categories" style="width: 100%">Voir la carte</a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

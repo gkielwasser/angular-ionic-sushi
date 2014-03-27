@@ -1,0 +1,22 @@
+<ion-view title="{{category.title}}" left-buttons="leftButtons">
+
+  <ion-content has-header="true" has-tabs="true" has-bouncing="false">
+      <ul class="list">
+          <li class="item item-thumbnail-left item-button-right" style="padding-bottom:0;padding-top: 12px;" ng-repeat="item in category.items">
+              <img class="rounded" ng-src="{{item.image}}" style="cursor: pointer;" ng-click="loadItem(item.id)">
+              <h2 style="margin-bottom: -2px;">{{item.title}}</h2>
+              <div class="price">{{item.price| number : 2}} €</div>
+              <p class="description">{{item.description}}</p>
+              <h3 style="margin-bottom: 0;margin-top: 6px;margin-left: 7px;"ng-pluralize count="item.piece"
+                  when="{'one': '1 pièce',
+                     'other': '{} pièces'}"></h3>
+              <quantity item="item"></quantity>
+             <!-- <button ng-click="addItem(item)" class="button button-balanced button-bottom">{{(!item.quantity || item.quantity == 0)? 'Ajouter' : 'Ajouter x' + item.quantity}}</button>-->
+              <button ng-click="addItem(item)" class="button button-balanced button-bottom">
+                  <i class="ion-ios7-plus-outline">  Ajouter</i></button>
+
+          </li>
+
+      </ul>
+  </ion-content>
+</ion-view>

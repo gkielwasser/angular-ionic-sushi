@@ -1,0 +1,22 @@
+<ion-view title="Heure de retrait" left-buttons="leftButtons">
+
+    <ion-content has-header="true" has-tabs="true" has-bouncing="false">
+        <div class="list">
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Jour</span>
+                <select ng-change="change()" ng-model="command.day">
+                    <option ng-repeat="day in days" value="{{$index}}">{{day}}</option>
+                </select>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Heure</span>
+                <select ng-change="change()" ng-model="command.time">
+                    <option ng-repeat="hour in hours" value="{{$index}}">{{hour}}</option>
+                </select>
+            </label>
+        </div>
+        <div class="padding">
+            <a class="button button-calm button-block" href="#/command/client" >Valider</a>
+        </div>
+    </ion-content>
+</ion-view>
