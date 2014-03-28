@@ -1,10 +1,21 @@
-<ion-view title="{{item.title}}" left-buttons="leftButtons" right-buttons="rightButtons">
-    <ion-content has-header="true" padding="false">
+<ion-view title="{{item.title}}">
+    <ion-nav-buttons side="left">
+        <button class="button ion-ios7-arrow-back button-icon" ng-click="go('tab.category',{categoryId:item.categoryId})">
+            {{categoryLabel}}
+        </button>
+    </ion-nav-buttons>
+    <ion-content has-header="true" has-bouncing="false" has-tabs="true" padding="false">
         <div ng-if="item.id !== 'undefined'">
             <div class="text-center" style="position: relative;">
                 <img class="rounded" style="padding-top: 10px;" ng-src="{{item.image}}">
                 <div class="absolute-price">{{item.price | number : 2}} €</div>
-                <p style="margin-bottom: 5px">{{item.description}}</p>
+                <p>
+                    <h4>Composition:</h4>
+                    <ul>
+                        <li style="display: inline-block;padding-left: 5px" ng-repeat="ing in item.components">{{($index == item.components.length-1) ? ing : ing + ','}}</li>
+                    </ul>
+                </p>
+                <!--<p style="margin-bottom: 5px">{{item.description}}</p>-->
             </div>
 
 

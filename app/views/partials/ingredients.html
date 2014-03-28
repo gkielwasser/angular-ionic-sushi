@@ -1,0 +1,36 @@
+
+<ion-view title="Ingrédients" left-buttons="leftButtons">
+    <div class="bar bar-subheader">
+        <div class=" alert-info" style="font-size: 18px;text-overflow: ellipsis;text-align: center;margin: auto;width: 100%;line-height: 44px;position: absolute;top: 0;right: 0;left: 0;">Sushis trouvés : <span class="badge badge-balanced">{{filteredItems.length}}</span></div>
+    </div>
+    <ion-content class="has-subheader" has-header="true" has-tabs="true" has-bouncing="false" has-subheader="true">
+        <ul class="list">
+            <li class="item item-checkbox ingredient hover" ng-repeat="ing in ingredients | orderBy:'text':false" ng-show="isIngredient(ing.text)" ng-click="ing.checked = !ing.checked;updateItems(ing.checked);">
+                <label class="checkbox" ng-click="updateItems(ing.checked);$event.stopImmediatePropagation();">
+                    <input type="checkbox" ng-model="ing.checked">
+                </label>
+                {{ing.text}}
+            </li>
+        </ul>
+
+
+
+        <ul class="list" ng-controller="ItemCtrl">
+            <li class="item item-thumbnail-left item-button-right" style="padding-bottom:0;padding-top: 12px;" ng-repeat="item in filteredItems">
+                <img class="rounded" ng-src="{{item.image}}" style="cursor: pointer;" ng-click="loadItem(item)">
+                <h2 style="margin-bottom: -2px;">{{item.title}}</h2>
+                <div class="price">{{item.price| number : 2}} €</div>
+                <p class="description">{{item.description}}</p>
+                <h3 style="margin-bottom: 0;margin-top: 6px;margin-left: 7px;"ng-pluralize count="item.piece"
+                    when="{'one': '1 pièce',
+                     'other': '{} pièces'}"></h3>
+                <quantity item="item"></quantity>
+                <!-- <button ng-click="addItem(item)" class="button button-balanced button-bottom">{{(!item.quantity || item.quantity == 0)? 'Ajouter' : 'Ajouter x' + item.quantity}}</button>-->
+                <button ng-click="addItem(item)" class="button button-balanced button-bottom">
+                    <i class="ion-ios7-plus-outline">  Ajouter</i></button>
+
+            </li>
+
+        </ul>
+    </ion-content>
+</ion-view>

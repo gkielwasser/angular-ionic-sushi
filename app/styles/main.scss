@@ -125,7 +125,7 @@ body {
 
 .item.active:not(.item-divider):not(.item-input):not(.item-input-inset), .item-complex.active .item-content {
   background-color:inherit;
-  border-color: #ccc;
+  border-color: #ddd;
 }
 
 .logo{
@@ -135,15 +135,21 @@ body {
   height: 44px;
   z-index: 20;
 }
-.bar.bar-positive {
+.bar.bar-header{
   background-color: black;
   border-color: black;
+  background-image: none;
+}
+
+.bar h1, .bar .button{
+  color: #fff;
 }
 
 .ion-ios7-minus,.ion-ios7-plus{
   cursor:pointer;
   font-size: 19px;
   padding: 4px;
+
 }
 
 .ion-ios7-minus:active, .ion-ios7-minus .active, .ion-ios7-plus:active, .ion-ios7-plus .active{
@@ -224,4 +230,42 @@ body {
 
 .hover{
   cursor: pointer;
+}
+
+li.ingredient {
+  width:50%;
+  display: inline-block;
+
+}
+li.ingredient.item{
+  padding: 10px 10px 10px 48px;margin-bottom: -5px;
+}
+
+.alert-info {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  color: #31708f;
+}
+
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.item-detail-see{
+  position: absolute;
+  left: 38px;
+  color: white;
+  bottom: 0;
+  margin: auto;
+  top: 0;
+  font-size: 20px;
+  height: 26px;
+  cursor: pointer;
+  background: rgba(235, 229, 229, 0.5);
+  padding: 5px;
+  opacity: 0.8;
+  border-radius: 4px;
 }

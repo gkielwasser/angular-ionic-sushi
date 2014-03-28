@@ -1,5 +1,9 @@
 <ion-view title="Coordonnées" left-buttons="leftButtons">
-
+    <ion-nav-buttons side="left">
+        <button class="button ion-ios7-arrow-back button-icon" ng-click="go('command.time')">
+            Heure
+        </button>
+    </ion-nav-buttons>
     <ion-content has-header="true" has-tabs="true" has-bouncing="false">
         <div class="list">
             <label class="item item-input item-stacked-label">
@@ -19,8 +23,8 @@
                 <input type="tel" placeholder="Téléphone">
             </label>
         </div>
-        <div class="padding">
-            <button class="button button-block button-calm">Payer</button>
+        <div class="padding" data-ng-controller="FinishCtrl">
+            <button class="button button-block button-calm" ng-click="showConfirm()">Payer</button>
         </div>
     </ion-content>
 </ion-view>

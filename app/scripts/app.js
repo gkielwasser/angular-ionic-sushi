@@ -71,6 +71,16 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers','L
       }
     })
 
+    .state('tab.ingredients', {
+      url: '/ingredients',
+      views: {
+        'ingredients-tab': {
+          templateUrl: 'partials/ingredients.html',
+          controller: 'IngredientsCtrl'
+        }
+      }
+    })
+
     .state('tab.category', {
       url: '/categories/:categoryId',
       views: {
@@ -91,7 +101,7 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers','L
       }
     })
 
-    .state('tab.panier', {
+    .state('tab.cart', {
       url: '/panier',
       views: {
         'cart-tab': {
@@ -143,27 +153,60 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers','L
       replace:true,
       templateUrl:'/partials/quantity.html',
       controller: function($scope){
+        if($scope.item){
+          if(!$scope.item.quantity)  $scope.item.quantity = 0;
 
-        if(!$scope.item.quantity)  $scope.item.quantity = 0;
+          $scope.upQuantity = function(){
+            if($scope.cart){
+              CartService.upQuantity($scope.item.id);
+            }
+            else{
+              $scope.item.quantity ++;
+            }
+          }
 
-        $scope.upQuantity = function(){
-          if($scope.cart){
-            CartService.upQuantity($scope.item.id);
-          }
-          else{
-            $scope.item.quantity ++;
-          }
-        }
-
-        $scope.downQuantity = function(){
-          if($scope.cart){
-            CartService.downQuantity($scope.item.id);
-          }
-          else{
-            if($scope.item.quantity > 0) $scope.item.quantity --;
+          $scope.downQuantity = function(){
+            if($scope.cart){
+              CartService.downQuantity($scope.item.id);
+            }
+            else{
+              if($scope.item.quantity > 0) $scope.item.quantity --;
+            }
           }
         }
       }
     }
   })
 
+  .filter('ingredientsFilter', function(CategoryService){
+    var FilterArray = [], found,acceptable;
+
+    return function(allItems,ingredients){
+      console.log("go")
+      FilterArray = [];
+      var loop = 0;
+
+      angular.forEach(allItems, function(item,index){
+        acceptable = true;
+        angular.forEach(ingredients, function(ingFilter){
+          if(ingFilter.checked){
+            found = false;
+
+            angular.forEach(item.components, function(ing,index){
+              loop++;
+              if(ingFilter.text == ing) found = true;
+            })
+
+            if(!found)  acceptable = false;
+          }
+        })
+
+        if(acceptable) {
+          FilterArray.push(item);
+        }
+
+      })
+      console.log("loops",loop)
+      return FilterArray;
+    };
+  })

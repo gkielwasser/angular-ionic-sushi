@@ -1,6 +1,13 @@
 <ion-view title="Point de retrait" left-buttons="leftButtons">
-
+    <ion-nav-buttons side="left">
+        <button class="button ion-ios7-arrow-back button-icon" ng-click="go('tab.cart')">
+            Panier
+        </button>
+     </ion-nav-buttons>
     <ion-content has-header="true" has-tabs="true" has-bouncing="false">
+        <div class="item text-center alert alert-info">
+            Sélectionner un point de retrait
+        </div>
         <ul class="list">
 
             <a class="item" href="#/command/time">

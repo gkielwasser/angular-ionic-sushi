@@ -1,4 +1,9 @@
-<ion-view title="Panier" left-buttons="leftButtons">
+<ion-view title="Panier">
+    <ion-nav-buttons side="left">
+        <button class="button ion-ios7-arrow-back button-icon" ng-click="go('tab.categories')">
+            Carte
+        </button>
+    </ion-nav-buttons>
     <ion-content has-header="true" has-tabs="true" has-bouncing="false">
         <div ng-show="items.length > 0">
             <ul class="list">
@@ -7,7 +12,7 @@
                     <h2>{{item.title}}</h2>
                     {{item.quantity}} x {{item.price| number : 2}}€
                     <h2 style="position: absolute;right: 10px;top:40px">{{item.quantity*item.price| number : 2}} €</h2>
-                    <div style="position: absolute;right: 10px;top:10px"><i class="ion-ios7-trash-outline hover" style="font-size: 25px" ng-click="removeItem(item.id)"></i></div>
+                    <div style="position: absolute;right: 0px;top:5px"><i class="ion-ios7-trash-outline hover" style="font-size: 25px;padding: 5px 10px 5px 10px;" ng-click="removeItem(item.id)"></i></div>
                     <quantity item="item" cart="true"></quantity>
                 </li>
             </ul>

@@ -1,7 +1,11 @@
 angular.module('starter.controllers', [])
 
-  .controller('mainCtrl',['$scope', function($scope) {
+  .controller('mainCtrl',['$scope','$state', function($scope,$state) {
     $scope.navTitle='<img class="title-image" src="images/sushimontblanc.jpg" />';
+
+    $scope.go = function(state){
+      $state.go(state);
+    }
   }])
 
 // A simple controller that fetches a list of data from a service
@@ -9,6 +13,45 @@ angular.module('starter.controllers', [])
   // "Pets" is a service returning mock data (services.js)
   $scope.categories = CategoryService.all();
 }])
+
+  .controller('IngredientsCtrl',['$scope', 'CategoryService','$filter','$ionicScrollDelegate', function($scope, CategoryService,$filter,$ionicScrollDelegate) {
+    $scope.filteredItems = CategoryService.getAllItems();
+    $scope.ingredients = CategoryService.getAllIngredients();
+
+    $scope.updateItems = function(checked){
+      //Optimisation: ne pas filter si l'on check & plus qu'un item disponible
+      if(!checked || ($scope.filteredItems.length > 1 && checked) ){
+        //Optimisation: ne rechercher que dans les filtrers si le filtre est plus précis
+        if(checked){
+          $scope.filteredItems = $filter('ingredientsFilter')($scope.filteredItems,$scope.ingredients);
+        }
+        else{
+          $scope.filteredItems = $filter('ingredientsFilter')(CategoryService.getAllItems(),$scope.ingredients);
+        }
+
+        console.log("checked",checked);
+        $ionicScrollDelegate.scrollTop();
+      }
+      else{
+        console.log("ignore")
+      }
+    }
+
+    $scope.isIngredient = function(ing){
+      var res = false;
+
+      angular.forEach($scope.filteredItems, function(item){
+
+        angular.forEach(item.components, function(ingredient){
+
+          if(ingredient == ing){
+            res = true;
+          }
+        })
+      });
+      return res;
+    }
+  }])
 
   .controller('CartTabCtrl',['$scope', 'CartService','$animate', function($scope, CartService,$animate) {
     $scope.getAnim = function(){
@@ -63,15 +106,28 @@ angular.module('starter.controllers', [])
     }
   }])
 
+  .controller('FinishCtrl',['$scope','$ionicPopup','CartService',function($scope, $ionicPopup,CartService) {
+
+    $scope.showConfirm = function() {
+        $ionicPopup.alert({
+          title: 'Fin',
+          content: 'Démonstration terminée. Le Panier va être supprimé.'
+        }).then(function(){
+            CartService.reset();
+            $scope.go('tab.categories');
+        })
+    };
+
+  }])
+
+  .controller('ClientDataCtrl',['$scope',function($scope) {
+
+
+
+  }])
+
 // A simple controller that shows a tapped item's data
 .controller('CategoryCtrl', ['$scope', '$stateParams', 'CategoryService', 'CartService','$state', function($scope, $stateParams, CategoryService, CartService,$state) {
-  $scope.leftButtons = [{
-    type: 'icon ion-ios7-arrow-back button button-icon',
-    content: 'Catégories',
-    tap: function(e) {
-      $state.go("tab.categories");
-    }
-  }];
 
   $scope.category = CategoryService.get($stateParams.categoryId);
 
@@ -88,13 +144,7 @@ angular.module('starter.controllers', [])
 }])
 
   .controller('ItemCtrl', ['$scope', '$stateParams', 'CategoryService', 'CartService','$state',function($scope, $stateParams, CategoryService, CartService,$state) {
-    $scope.leftButtons = [{
-      type: 'icon ion-ios7-arrow-back button button-icon',
-      content: CategoryService.getCategory($stateParams.categoryId),
-      tap: function(e) {
-        $state.go("tab.category",{categoryId:$stateParams.categoryId});
-      }
-    }];
+    $scope.categoryLabel = CategoryService.getCategory($stateParams.categoryId);
 
     $scope.item = CategoryService.getItem($stateParams.categoryId,$stateParams.itemId);
 
@@ -104,6 +154,10 @@ angular.module('starter.controllers', [])
       CartService.addItem(add);
       item.quantity = 0;
     }
+
+    $scope.loadItem = function(item){
+      $state.go('tab.item-detail',{categoryId:item.category, itemId:item.id});
+    }
   }])
 
   .controller('CartCtrl', ['$scope','CartService','$state',function($scope, CartService,$state) {
@@ -111,14 +165,6 @@ angular.module('starter.controllers', [])
       console.log("cart items",value)
       $scope.items = value;
     },true)
-
-    $scope.leftButtons = [{
-      type: 'icon ion-ios7-arrow-back button button-icon',
-      content: 'Catégories',
-      tap: function(e) {
-        $state.go("tab.categories");
-      }
-    }];
 
     $scope.removeItem = function(id){
       CartService.removeItem(id);
