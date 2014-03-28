@@ -13,6 +13,8 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var config = require('./lib/config/config');
 
 var app = express();
+app.use(express.compress());
+app.use("/", express.static(__dirname+'/'));
 
 // Express settings
 require('./lib/config/express')(app);
