@@ -15,6 +15,9 @@ module.exports = function (grunt) {
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
+  //Delete console.log
+  grunt.loadNpmTasks("grunt-strip");
+
   // Define the configuration for all the tasks
   grunt.initConfig({
 
@@ -74,7 +77,7 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/views/{,*//*}*.{html,jade}',
           '{.tmp,<%= yeoman.app %>}/styles/{,*//*}*.css',
           '{.tmp,<%= yeoman.app %>}/scripts/{,*//*}*.js',
-          '<%= yeoman.app %>/images/{,*//*}*.{png,jpg,jpeg,gif,webp,svg}',
+          '<%= yeoman.app %>/images/{,*//*}*.{png,jpg,jpeg,gif,webp,svg}'
         ],
       
         options: {
@@ -114,6 +117,16 @@ module.exports = function (grunt) {
           jshintrc: 'test/client/.jshintrc'
         },
         src: ['test/client/spec/{,*/}*.js']
+      }
+    },
+
+    strip: {
+      maon: {
+        src: '.tmp/concat/scripts/*.js',
+        options : {
+          nodes : ['console.log', 'debug'],
+          inline : true
+        }
       }
     },
 
@@ -523,6 +536,7 @@ module.exports = function (grunt) {
     'concurrent:dist',
     'autoprefixer',
     'concat',
+    'strip', //Suppression console.log
     'ngmin',
     'copy:dist',
     'cdnify',
