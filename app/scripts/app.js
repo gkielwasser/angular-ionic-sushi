@@ -1,212 +1,134 @@
-// Ionic Starter App
+angular.module('sushi', ['ionic', 'sushi.services', 'sushi.controllers', 'sushi.filters', 'sushi.directives', 'LocalStorageModule'])
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.services' is found in services.js
-// 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.services', 'starter.controllers','LocalStorageModule'])
+  .config(function ($stateProvider, $urlRouterProvider) {
 
-
-.config(function($stateProvider, $urlRouterProvider) {
-
-  // Ionic uses AngularUI Router which uses the concept of states
-  // Learn more here: https://github.com/angular-ui/ui-router
-  // Set up the various states which the app can be in.
-  // Each state's controller can be found in controllers.js
-  $stateProvider
-    .state('accueil', {
-      url: "/",
-      templateUrl:"partials/accueil.html"
-    })
-
-    .state('command', {
-      url: "/command",
-      abstract: true,
-      templateUrl: "partials/tabs-command.html"
-    })
-
-    .state('command.location', {
-      url: '/location',
-      views: {
-        'command-tab-location': {
-          templateUrl: 'partials/command-location.html'
-        }
-      }
-    })
-
-    .state('command.time', {
-      url: '/time',
-      views: {
-        'command-tab-time': {
-          templateUrl: 'partials/command-time.html',
-          controller: 'CommandTimeCtrl'
-        }
-      }
-    })
-
-    .state('command.client', {
-      url: '/client',
-      views: {
-        'command-tab-client': {
-          templateUrl: 'partials/command-client.html'
-        }
-      }
-    })
-
-    // setup an abstract state for the tabs directive
-    .state('tab', {
-      url: "/tab",
-      abstract: true,
-      templateUrl: "partials/tabs.html"
-    })
-
-    .state('tab.categories', {
-      url: '/categories',
-      views: {
-        'categories-tab': {
-          templateUrl: 'partials/categories.html',
-          controller: 'CategoriesCtrl'
-        }
-      }
-    })
-
-    .state('tab.ingredients', {
-      url: '/ingredients',
-      views: {
-        'ingredients-tab': {
-          templateUrl: 'partials/ingredients.html',
-          controller: 'IngredientsCtrl'
-        }
-      }
-    })
-
-    .state('tab.category', {
-      url: '/categories/:categoryId',
-      views: {
-        'categories-tab': {
-          templateUrl: 'partials/category.html',
-          controller: 'CategoryCtrl'
-        }
-      }
-    })
-
-    .state('tab.item-detail', {
-      url: '/categories/:categoryId/:itemId',
-      views: {
-        'categories-tab': {
-          templateUrl: 'partials/item-detail.html',
-          controller: 'ItemCtrl'
-        }
-      }
-    })
-
-    .state('tab.cart', {
-      url: '/panier',
-      views: {
-        'cart-tab': {
-          templateUrl: 'partials/panier.html',
-          controller: 'CartCtrl'
-        }
-      }
-    })
-
-    .state('tab.boutiques', {
-      url: '/boutiques',
-      views: {
-        'boutiques-tab': {
-          templateUrl: 'partials/boutiques.html'
-        }
-      }
-    })
-
-    .state('tab.adopt', {
-      url: '/adopt',
-      views: {
-        'adopt-tab': {
-          templateUrl: 'partials/adopt.html'
-        }
-      }
-    })
-
-    .state('tab.about', {
-      url: '/about',
-      views: {
-        'about-tab': {
-          templateUrl: 'partials/about.html'
-        }
-      }
-    });
-
-  // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/');
-
-})
-
-  .directive('quantity',function(CartService) {
-    return {
-      restrict:'E',
-      scope: {
-        item:'=',
-        cart:'=' //affete le local storage directement
-      },
-      replace:true,
-      templateUrl:'/partials/quantity.html',
-      controller: function($scope){
-        if($scope.item){
-          if(!$scope.item.quantity)  $scope.item.quantity = 0;
-
-          $scope.upQuantity = function(){
-            if($scope.cart){
-              CartService.upQuantity($scope.item.id);
-            }
-            else{
-              $scope.item.quantity ++;
-            }
-          }
-
-          $scope.downQuantity = function(){
-            if($scope.cart){
-              CartService.downQuantity($scope.item.id);
-            }
-            else{
-              if($scope.item.quantity > 0) $scope.item.quantity --;
-            }
-          }
-        }
-      }
-    }
-  })
-
-  .filter('ingredientsFilter', function(CategoryService){
-    var FilterArray = [], found,acceptable;
-
-    return function(allItems,ingredients){
-      console.log("go")
-      FilterArray = [];
-      var loop = 0;
-
-      angular.forEach(allItems, function(item,index){
-        acceptable = true;
-        angular.forEach(ingredients, function(ingFilter){
-          if(ingFilter.checked){
-            found = false;
-
-            angular.forEach(item.components, function(ing,index){
-              loop++;
-              if(ingFilter.text == ing) found = true;
-            })
-
-            if(!found)  acceptable = false;
-          }
-        })
-
-        if(acceptable) {
-          FilterArray.push(item);
-        }
-
+    $stateProvider
+      .state('accueil', {
+        url: "/",
+        templateUrl: "partials/home.html"
       })
-      console.log("loops",loop)
-      return FilterArray;
-    };
+
+      .state('command', {
+        url: "/command",
+        abstract: true,
+        templateUrl: "partials/tabs-command.html"
+      })
+
+      .state('command.location', {
+        url: '/location',
+        views: {
+          'command-tab-location': {
+            templateUrl: 'partials/command-location.html'
+          }
+        }
+      })
+
+      .state('command.time', {
+        url: '/time',
+        views: {
+          'command-tab-time': {
+            templateUrl: 'partials/command-time.html',
+            controller: 'CommandTimeCtrl'
+          }
+        }
+      })
+
+      .state('command.client', {
+        url: '/client',
+        views: {
+          'command-tab-client': {
+            templateUrl: 'partials/command-client.html'
+          }
+        }
+      })
+
+      // setup an abstract state for the tabs directive
+      .state('tab', {
+        abstract: true,
+        templateUrl: "partials/tabs.html"
+      })
+
+      .state('tab.categories', {
+        url: '/categories',
+        views: {
+          'categories-tab': {
+            templateUrl: 'partials/categories.html',
+            controller: 'CategoriesCtrl'
+          }
+        }
+      })
+
+      .state('tab.ingredients', {
+        url: '/ingredients',
+        views: {
+          'ingredients-tab': {
+            templateUrl: 'partials/ingredients.html',
+            controller: 'IngredientsCtrl'
+          }
+        }
+      })
+
+      .state('tab.category', {
+        url: '/categories/:categoryId',
+        views: {
+          'categories-tab': {
+            templateUrl: 'partials/category.html',
+            controller: 'CategoryCtrl'
+          }
+        }
+      })
+
+      .state('tab.item-detail', {
+        url: '/categories/:categoryId/:itemId',
+        views: {
+          'categories-tab': {
+            templateUrl: 'partials/item-detail.html',
+            controller: 'ItemCtrl'
+          }
+        }
+      })
+
+      .state('tab.cart', {
+        url: '/cart',
+        views: {
+          'cart-tab': {
+            templateUrl: 'partials/cart.html',
+            controller: 'CartCtrl'
+          }
+        }
+      })
+
+      .state('tab.boutiques', {
+        url: '/shops',
+        views: {
+          'shops-tab': {
+            templateUrl: 'partials/shops.html'
+          }
+        }
+      })
+
+      .state('tab.adopt', {
+        url: '/adopt',
+        views: {
+          'adopt-tab': {
+            templateUrl: 'partials/adopt.html'
+          }
+        }
+      })
+
+      .state('tab.about', {
+        url: '/about',
+        views: {
+          'about-tab': {
+            templateUrl: 'partials/about.html'
+          }
+        }
+      });
+
+    // if none of the above states are matched, use this as the fallback
+    $urlRouterProvider.otherwise('/'); //Home
+
   })
+
+
+

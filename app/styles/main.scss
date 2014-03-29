@@ -1,140 +1,3 @@
-.browsehappy {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
-}
-
-/* Space out content a bit */
-body {
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-/* Custom page header */
-.header {
-    border-bottom: 1px solid #e5e5e5;
-}
-
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
-}
-
-/* Custom page footer */
-.footer {
-    padding-top: 19px;
-    color: #777;
-    border-top: 1px solid #e5e5e5;
-}
-
-.container-narrow > hr {
-    margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
-    text-align: center;
-    border-bottom: 1px solid #e5e5e5;
-}
-
-.jumbotron .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-}
-
-/* Supporting marketing content */
-.marketing {
-    margin: 40px 0;
-}
-
-.marketing p + h4 {
-    margin-top: 28px;
-}
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-    .container {
-        max-width: 730px;
-    }
-
-    /* Remove the padding we set earlier */
-    .header,
-    .marketing,
-    .footer {
-        padding-left: 0;
-        padding-right: 0;
-    }
-    /* Space out the masthead */
-    .header {
-        margin-bottom: 30px;
-    }
-    /* Remove the bottom border on the jumbotron for visual effect */
-    .jumbotron {
-        border-bottom: 0;
-    }
-}
-
-
-.item-button-right, a.item.item-button-right, button.item.item-button-right {
-  padding-right: 50px;
-}
-.button-bottom{
-  top:initial!important;
-  bottom: 7px;
-  font-size: 16px!important;
-  padding-top: 0px;
-}
-
-.price {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  align-items: center;
-  position: absolute;
-  top: 4px;
-  right: 15px;
-  min-width: 34px;
-  min-height: 34px;
-  font-size: 18px;
-  line-height: 32px;
-}
-
-.description{
-  min-height:18px;
-  margin-bottom: 0;
-}
-
-.item.active:not(.item-divider):not(.item-input):not(.item-input-inset), .item-complex.active .item-content {
-  background-color:inherit;
-  border-color: #ddd;
-}
-
-.logo{
-  position: absolute;
-  top:0;
-  right:-38px;
-  height: 44px;
-  z-index: 20;
-}
 .bar.bar-header{
   background-color: black;
   border-color: black;
@@ -144,6 +7,69 @@ body {
 .bar h1, .bar .button{
   color: #fff;
 }
+
+.logo{
+  position: absolute;
+  top:0;
+  right:-38px;
+  height: 44px;
+  z-index: 20;
+}
+
+.hover{
+  cursor: pointer;
+}
+
+.item-button-right, a.item.item-button-right, button.item.item-button-right {
+  padding-right: 50px;
+}
+
+.item.active:not(.item-divider):not(.item-input):not(.item-input-inset), .item-complex.active .item-content {
+  background-color:inherit;
+  border-color: #ddd;
+}
+
+.item-detail-see{
+  position: absolute;
+  left: 38px;
+  color: white;
+  bottom: 0;
+  margin: auto;
+  top: 0;
+  font-size: 20px;
+  height: 26px;
+  cursor: pointer;
+  background: rgba(235, 229, 229, 0.5);
+  padding: 5px;
+  opacity: 0.8;
+  border-radius: 4px;
+}
+
+.item-thumbnail-left img{
+  height: 80px;
+  width:80px;
+}
+
+.button-bottom{
+  top:initial!important;
+  bottom: 7px;
+  font-size: 16px!important;
+  padding-top: 0px;
+}
+
+.price {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  font-size: 18px;
+}
+
+.description{
+  min-height:18px;
+  margin-bottom: 0;
+}
+
+
 
 .ion-ios7-minus,.ion-ios7-plus{
   cursor:pointer;
@@ -158,6 +84,7 @@ body {
 
 .absolute-price {
   position: absolute;
+  background-color: rgba(60, 138, 50, 0.93);
   top: 190px;
   width: 55px;
   margin: auto;
@@ -165,7 +92,6 @@ body {
   right: 0;
   z-index: 9999;
   color: white;
-  background-color: rgba(60, 138, 50, 0.93);
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 }
@@ -174,6 +100,28 @@ body {
   color: green;
   transition: 1s;
   -webkit-transform: scale(1.1);
+}
+
+li.ingredient {
+  width:50%;
+  display: inline-block;
+}
+li.ingredient.item{
+  padding: 10px 10px 10px 48px;
+  margin-bottom: -5px;
+}
+
+.alert-info {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  color: #31708f;
+}
+
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
 }
 
 .animated {
@@ -222,51 +170,4 @@ body {
 .pulse{
   -webkit-animation-name: pulse;
   animation-name: pulse;
-}
-
-.hover{
-  cursor: pointer;
-}
-
-li.ingredient {
-  width:50%;
-  display: inline-block;
-
-}
-li.ingredient.item{
-  padding: 10px 10px 10px 48px;margin-bottom: -5px;
-}
-
-.alert-info {
-  background-color: #d9edf7;
-  border-color: #bce8f1;
-  color: #31708f;
-}
-
-.alert {
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
-  border-radius: 4px;
-}
-
-.item-detail-see{
-  position: absolute;
-  left: 38px;
-  color: white;
-  bottom: 0;
-  margin: auto;
-  top: 0;
-  font-size: 20px;
-  height: 26px;
-  cursor: pointer;
-  background: rgba(235, 229, 229, 0.5);
-  padding: 5px;
-  opacity: 0.8;
-  border-radius: 4px;
-}
-
-.item-thumbnail-left img{
-  height: 80px;
-  width:80px;
 }

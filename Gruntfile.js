@@ -105,7 +105,7 @@ module.exports = function (grunt) {
         dest: '.tmp/concat/scripts/template.js',
         options: {
           usemin: '<%= yeoman.dist %>/public/scripts/scripts.js', // <~~ This came from the <!-- build:js --> block
-          module: 'starter',
+          module: 'sushi',
           htmlmin:  '<%= htmlmin.deploy.options %>'
         }
       }
