@@ -23,81 +23,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="28" selection-start="169" selection-end="193" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="799">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/styles/main.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="171" column="0" selection-start="3065" selection-end="3065" vertical-scroll-proportion="-6.3333335" vertical-offset="2584" max-vertical-offset="4097">
-              <folding>
-                <element signature="e#3292#3536#0" expanded="false" />
-                <element signature="e#3538#3863#0" expanded="false" />
-                <element signature="e#3871#3932#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Gruntfile.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Gruntfile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="19" selection-start="2790" selection-end="2790" vertical-scroll-proportion="0.4445664" vertical-offset="1414" max-vertical-offset="9911">
+            <state line="450" column="8" selection-start="10997" selection-end="10997" vertical-scroll-proportion="0.402854" vertical-offset="7283" max-vertical-offset="10438">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scripts.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.tmp/concat/scripts/scripts.js">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dist/views/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="528440" max-vertical-offset="529363">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <marker date="1396086526733" expanded="false" signature="1224734:1224776" placeholder="..." />
-                <marker date="1396086526733" expanded="false" signature="1224838:1224867" placeholder="..." />
-                <marker date="1396086526733" expanded="false" signature="1226082:1226124" placeholder="..." />
-                <marker date="1396086526733" expanded="false" signature="1226186:1226214" placeholder="..." />
-                <marker date="1396086526733" expanded="false" signature="1226278:1226297" placeholder="..." />
-                <marker date="1396086526733" expanded="false" signature="1226479:1226489" placeholder="..." />
-                <marker date="1396086526733" expanded="false" signature="1227517:1227619" placeholder="..." />
-                <marker date="1396086526733" expanded="false" signature="1228284:1228319" placeholder="..." />
-                <marker date="1396086526733" expanded="false" signature="1228429:1228445" placeholder="..." />
-                <marker date="1396086526733" expanded="false" signature="1228612:1228632" placeholder="..." />
-                <marker date="1396086526733" expanded="false" signature="1228832:1228882" placeholder="..." />
-                <marker date="1396086526733" expanded="false" signature="1234519:1234664" placeholder="..." />
-                <marker date="1396086526733" expanded="false" signature="1235659:1235694" placeholder="..." />
-                <marker date="1396086526733" expanded="false" signature="1235812:1235828" placeholder="..." />
-                <marker date="1396086526733" expanded="false" signature="1235897:1235917" placeholder="..." />
-                <marker date="1396086526733" expanded="false" signature="1236144:1236194" placeholder="..." />
-                <marker date="1396086526733" expanded="false" signature="1237551:1237570" placeholder="..." />
-                <marker date="1396086526733" expanded="false" signature="1237630:1237648" placeholder="..." />
-                <marker date="1396086526733" expanded="false" signature="1237947:1237986" placeholder="..." />
-                <marker date="1396086526733" expanded="false" signature="1238467:1238537" placeholder="..." />
-                <marker date="1396086526733" expanded="false" signature="1238862:1238874" placeholder="..." />
-                <marker date="1396086526733" expanded="false" signature="1240200:1240239" placeholder="..." />
-                <marker date="1396086526733" expanded="false" signature="1240339:1240376" placeholder="..." />
-                <marker date="1396086526733" expanded="false" signature="1240425:1240468" placeholder="..." />
-                <marker date="1396086526733" expanded="false" signature="1240923:1240958" placeholder="..." />
-                <marker date="1396086526733" expanded="false" signature="1241234:1241245" placeholder="..." />
-                <marker date="1396086526733" expanded="false" signature="1241459:1241478" placeholder="..." />
-                <marker date="1396086526733" expanded="false" signature="1241517:1241536" placeholder="..." />
-                <marker date="1396086526733" expanded="false" signature="1241703:1241714" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="e99802a8.scripts.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dist/public/scripts/e99802a8.scripts.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="16178" selection-start="272826" selection-end="272834" vertical-scroll-proportion="-5.44" vertical-offset="0" max-vertical-offset="255">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="102">
               <folding />
             </state>
           </provider>
@@ -113,8 +51,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/partials/accueil.html" />
-        <option value="$PROJECT_DIR$/app/views/partials/categories.html" />
         <option value="$PROJECT_DIR$/app/views/partials/category.html" />
         <option value="$PROJECT_DIR$/app/views/partials/command-client.html" />
         <option value="$PROJECT_DIR$/app/views/partials/command-location.html" />
@@ -125,9 +61,11 @@
         <option value="$PROJECT_DIR$/app/views/partials/panier.html" />
         <option value="$PROJECT_DIR$/app/styles/main.scss" />
         <option value="$PROJECT_DIR$/.tmp/concat/scripts/templates.js" />
-        <option value="$PROJECT_DIR$/app/views/index.html" />
         <option value="$PROJECT_DIR$/dist/public/scripts/1b8b9ef2.scripts.js" />
         <option value="$PROJECT_DIR$/.tmp/concat/scripts/scripts.js" />
+        <option value="$PROJECT_DIR$/.tmp/concat/scripts/template.js" />
+        <option value="$PROJECT_DIR$/app/views/index.html" />
+        <option value="$PROJECT_DIR$/dist/views/index.html" />
         <option value="$PROJECT_DIR$/Gruntfile.js" />
       </list>
     </option>
@@ -225,28 +163,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dist" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sushi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sushi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -269,60 +185,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sushi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sushi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value=".tmp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sushi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sushi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value=".tmp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="concat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sushi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sushi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value=".tmp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="concat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -334,11 +196,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Gab\workspace" />
       <recent name="C:\Users\Gab\workspace\sushi\app\images" />
       <recent name="C:\Users\Gab\workspace\sushi" />
       <recent name="C:\Users\Gab\workspace\sushi\dist\public\images" />
       <recent name="C:\Users\Gab\workspace\sushi\dist\public" />
-      <recent name="C:\Users\Gab\workspace\sushi\app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Gab\workspace\sushi\app\images" />
@@ -412,13 +274,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="46" selection-start="130" selection-end="130" vertical-scroll-proportion="0.14529915" vertical-offset="0" max-vertical-offset="936">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/partials/ingredients.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="897">
@@ -493,61 +348,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="32" selection-start="343" selection-end="343" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3689">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="28" selection-start="169" selection-end="193" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="799">
+        <state line="7" column="30" selection-start="225" selection-end="225" vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="680">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dist/public/scripts/e99802a8.scripts.js">
+    <entry file="file://$PROJECT_DIR$/dist/views/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="16178" selection-start="272826" selection-end="272834" vertical-scroll-proportion="-5.44" vertical-offset="0" max-vertical-offset="255">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="923">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.tmp/concat/scripts/scripts.js">
+    <entry file="file://$PROJECT_DIR$/dist/views/partials/boutiques.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="528440" max-vertical-offset="529363">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="923">
           <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <marker date="1396086526733" expanded="false" signature="1224734:1224776" placeholder="..." />
-            <marker date="1396086526733" expanded="false" signature="1224838:1224867" placeholder="..." />
-            <marker date="1396086526733" expanded="false" signature="1226082:1226124" placeholder="..." />
-            <marker date="1396086526733" expanded="false" signature="1226186:1226214" placeholder="..." />
-            <marker date="1396086526733" expanded="false" signature="1226278:1226297" placeholder="..." />
-            <marker date="1396086526733" expanded="false" signature="1226479:1226489" placeholder="..." />
-            <marker date="1396086526733" expanded="false" signature="1227517:1227619" placeholder="..." />
-            <marker date="1396086526733" expanded="false" signature="1228284:1228319" placeholder="..." />
-            <marker date="1396086526733" expanded="false" signature="1228429:1228445" placeholder="..." />
-            <marker date="1396086526733" expanded="false" signature="1228612:1228632" placeholder="..." />
-            <marker date="1396086526733" expanded="false" signature="1228832:1228882" placeholder="..." />
-            <marker date="1396086526733" expanded="false" signature="1234519:1234664" placeholder="..." />
-            <marker date="1396086526733" expanded="false" signature="1235659:1235694" placeholder="..." />
-            <marker date="1396086526733" expanded="false" signature="1235812:1235828" placeholder="..." />
-            <marker date="1396086526733" expanded="false" signature="1235897:1235917" placeholder="..." />
-            <marker date="1396086526733" expanded="false" signature="1236144:1236194" placeholder="..." />
-            <marker date="1396086526733" expanded="false" signature="1237551:1237570" placeholder="..." />
-            <marker date="1396086526733" expanded="false" signature="1237630:1237648" placeholder="..." />
-            <marker date="1396086526733" expanded="false" signature="1237947:1237986" placeholder="..." />
-            <marker date="1396086526733" expanded="false" signature="1238467:1238537" placeholder="..." />
-            <marker date="1396086526733" expanded="false" signature="1238862:1238874" placeholder="..." />
-            <marker date="1396086526733" expanded="false" signature="1240200:1240239" placeholder="..." />
-            <marker date="1396086526733" expanded="false" signature="1240339:1240376" placeholder="..." />
-            <marker date="1396086526733" expanded="false" signature="1240425:1240468" placeholder="..." />
-            <marker date="1396086526733" expanded="false" signature="1240923:1240958" placeholder="..." />
-            <marker date="1396086526733" expanded="false" signature="1241234:1241245" placeholder="..." />
-            <marker date="1396086526733" expanded="false" signature="1241459:1241478" placeholder="..." />
-            <marker date="1396086526733" expanded="false" signature="1241517:1241536" placeholder="..." />
-            <marker date="1396086526733" expanded="false" signature="1241703:1241714" placeholder="..." />
+            <element signature="n#style#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#1;n#div#1;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Gruntfile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="19" selection-start="2790" selection-end="2790" vertical-scroll-proportion="0.4445664" vertical-offset="1414" max-vertical-offset="9911">
+        <state line="450" column="8" selection-start="10997" selection-end="10997" vertical-scroll-proportion="0.402854" vertical-offset="7283" max-vertical-offset="10438">
           <folding />
         </state>
       </provider>

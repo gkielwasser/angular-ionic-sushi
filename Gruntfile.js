@@ -80,7 +80,7 @@ module.exports = function (grunt) {
           '{.tmp,<%= yeoman.app %>}/scripts/{,*//*}*.js',
           '<%= yeoman.app %>/images/{,*//*}*.{png,jpg,jpeg,gif,webp,svg}'
         ],
-      
+
         options: {
           livereload: true
         }
@@ -98,14 +98,15 @@ module.exports = function (grunt) {
       }
     },
 
-    ngtemplates:  {
-      app:        {
-        src:      '<%= yeoman.app %>/views/partials/**.html',
-        dest:     '.tmp/scripts/template.js',
-        options:  {
+    ngtemplates: {
+      app: {
+        cwd: '<%= yeoman.app %>/views',
+        src: 'partials/**.html',
+        dest: '.tmp/concat/scripts/template.js',
+        options: {
           usemin: '<%= yeoman.dist %>/public/scripts/scripts.js', // <~~ This came from the <!-- build:js --> block
           module: 'starter',
-          prefix: 'partials/'
+          htmlmin:  '<%= htmlmin.deploy.options %>'
         }
       }
     },
@@ -136,9 +137,9 @@ module.exports = function (grunt) {
     strip: {
       maon: {
         src: '.tmp/concat/scripts/*.js',
-        options : {
-          nodes : ['console.log', 'debug'],
-          inline : true
+        options: {
+          nodes: ['console.log', 'debug'],
+          inline: true
         }
       }
     },
@@ -146,25 +147,29 @@ module.exports = function (grunt) {
     // Empties folders to start fresh
     clean: {
       dist: {
-        files: [{
-          dot: true,
-          src: [
-            '.tmp',
-            '<%= yeoman.dist %>/*',
-            '!<%= yeoman.dist %>/.git*',
-            '!<%= yeoman.dist %>/Procfile'
-          ]
-        }]
+        files: [
+          {
+            dot: true,
+            src: [
+              '.tmp',
+              '<%= yeoman.dist %>/*',
+              '!<%= yeoman.dist %>/.git*',
+              '!<%= yeoman.dist %>/Procfile'
+            ]
+          }
+        ]
       },
       heroku: {
-        files: [{
-          dot: true,
-          src: [
-            'heroku/*',
-            '!heroku/.git*',
-            '!heroku/Procfile'
-          ]
-        }]
+        files: [
+          {
+            dot: true,
+            src: [
+              'heroku/*',
+              '!heroku/.git*',
+              '!heroku/Procfile'
+            ]
+          }
+        ]
       },
       server: '.tmp'
     },
@@ -175,12 +180,14 @@ module.exports = function (grunt) {
         browsers: ['last 1 version']
       },
       dist: {
-        files: [{
-          expand: true,
-          cwd: '.tmp/styles/',
-          src: '{,*/}*.css',
-          dest: '.tmp/styles/'
-        }]
+        files: [
+          {
+            expand: true,
+            cwd: '.tmp/styles/',
+            src: '{,*/}*.css',
+            dest: '.tmp/styles/'
+          }
+        ]
       }
     },
 
@@ -211,7 +218,7 @@ module.exports = function (grunt) {
             nodemon.on('config:update', function () {
               setTimeout(function () {
                 require('open')('http://localhost:8080/debug?port=5858');
-              }, 500);              
+              }, 500);
             });
           }
         }
@@ -262,7 +269,7 @@ module.exports = function (grunt) {
           src: [
             '<%= yeoman.dist %>/public/scripts/{,*/}*.js',
             '<%= yeoman.dist %>/public/styles/{,*/}*.css',
-           //Bug url js '<%= yeoman.dist %>/public/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+            //Bug url js '<%= yeoman.dist %>/public/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
             '<%= yeoman.dist %>/public/styles/fonts/*'
           ]
         }
@@ -274,7 +281,7 @@ module.exports = function (grunt) {
     // additional tasks can operate on them
     useminPrepare: {
       html: ['<%= yeoman.app %>/views/index.html',
-             '<%= yeoman.app %>/views/index.jade'],
+        '<%= yeoman.app %>/views/index.jade'],
       options: {
         dest: '<%= yeoman.dist %>/public'
       }
@@ -283,7 +290,7 @@ module.exports = function (grunt) {
     // Performs rewrites based on rev and the useminPrepare configuration
     usemin: {
       html: ['<%= yeoman.dist %>/views/{,*/}*.html',
-             '<%= yeoman.dist %>/views/{,*/}*.jade'],
+        '<%= yeoman.dist %>/views/{,*/}*.jade'],
       css: ['<%= yeoman.dist %>/public/styles/{,*/}*.css'],
       options: {
         assetsDirs: ['<%= yeoman.dist %>/public']
@@ -294,53 +301,75 @@ module.exports = function (grunt) {
     imagemin: {
       options: { cache: false },
       dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.{png,jpg,jpeg,gif}',
-          dest: '<%= yeoman.dist %>/public/images'
-        }]
+        files: [
+          {
+            expand: true,
+            cwd: '<%= yeoman.app %>/images',
+            src: '{,*/}*.{png,jpg,jpeg,gif}',
+            dest: '<%= yeoman.dist %>/public/images'
+          }
+        ]
       }
     },
 
     svgmin: {
       dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.svg',
-          dest: '<%= yeoman.dist %>/public/images'
-        }]
+        files: [
+          {
+            expand: true,
+            cwd: '<%= yeoman.app %>/images',
+            src: '{,*/}*.svg',
+            dest: '<%= yeoman.dist %>/public/images'
+          }
+        ]
       }
     },
 
     htmlmin: {
       dist: {
         options: {
-          //collapseWhitespace: true,
-          //collapseBooleanAttributes: true,
-          //removeCommentsFromCDATA: true,
-          //removeOptionalTags: true
+
+        },
+        files: [
+          {
+            expand: true,
+            cwd: '<%= yeoman.app %>/views',
+            src: ['*.html', 'partials/**/*.html'],
+            dest: '<%= yeoman.dist %>/views'
+          }
+        ]
+      }
+      ,
+      deploy: {
+        options: {
+          collapseWhitespace: true,
+          collapseBooleanAttributes: true,
+          removeCommentsFromCDATA: true,
+          removeOptionalTags: true,
+          removeComments:true
         },
         files: [{
           expand: true,
-          cwd: '<%= yeoman.app %>/views',
-          src: ['*.html', 'partials/**/*.html'],
+          cwd: '<%= yeoman.dist %>/views',
+          src: '{,*/}*.html',
           dest: '<%= yeoman.dist %>/views'
         }]
       }
+
     },
 
     // Allow the use of non-minsafe AngularJS files. Automatically makes it
     // minsafe compatible so Uglify does not destroy the ng references
     ngmin: {
       dist: {
-        files: [{
-          expand: true,
-          cwd: '.tmp/concat/scripts',
-          src: '*.js',
-          dest: '.tmp/concat/scripts'
-        }]
+        files: [
+          {
+            expand: true,
+            cwd: '.tmp/concat/scripts',
+            src: '*.js',
+            dest: '.tmp/concat/scripts'
+          }
+        ]
       }
     },
 
@@ -354,38 +383,43 @@ module.exports = function (grunt) {
     // Copies remaining files to places other tasks can use
     copy: {
       dist: {
-        files: [{
-          expand: true,
-          dot: true,
-          cwd: '<%= yeoman.app %>',
-          dest: '<%= yeoman.dist %>/public',
-          src: [
-            '*.{ico,png,txt}',
-            '.htaccess',
-            'bower_components/**/*',
-            'images/**/*.{webp}',
-            'fonts/**/*'
-          ]
-        }, {
-          expand: true,
-          dot: true,
-          cwd: '<%= yeoman.app %>/views',
-          dest: '<%= yeoman.dist %>/views',
-          src: '**/*.jade'
-        }, {
-          expand: true,
-          cwd: '.tmp/images',
-          dest: '<%= yeoman.dist %>/public/images',
-          src: ['generated/*']
-        }, {
-          expand: true,
-          dest: '<%= yeoman.dist %>',
-          src: [
-            'package.json',
-            'server.js',
-            'lib/**/*'
-          ]
-        }]
+        files: [
+          {
+            expand: true,
+            dot: true,
+            cwd: '<%= yeoman.app %>',
+            dest: '<%= yeoman.dist %>/public',
+            src: [
+              '*.{ico,png,txt}',
+              '.htaccess',
+              'bower_components/**/*',
+              'images/**/*.{webp}',
+              'fonts/**/*'
+            ]
+          },
+          {
+            expand: true,
+            dot: true,
+            cwd: '<%= yeoman.app %>/views',
+            dest: '<%= yeoman.dist %>/views',
+            src: '**/*.jade'
+          },
+          {
+            expand: true,
+            cwd: '.tmp/images',
+            dest: '<%= yeoman.dist %>/public/images',
+            src: ['generated/*']
+          },
+          {
+            expand: true,
+            dest: '<%= yeoman.dist %>',
+            src: [
+              'package.json',
+              'server.js',
+              'lib/**/*'
+            ]
+          }
+        ]
       },
       styles: {
         expand: true,
@@ -416,7 +450,7 @@ module.exports = function (grunt) {
         'compass:dist',
         'imagemin',
         'svgmin',
-        'htmlmin'
+        'htmlmin:dist'
       ]
     },
 
@@ -480,7 +514,7 @@ module.exports = function (grunt) {
     }, 500);
   });
 
-  grunt.registerTask('express-keepalive', 'Keep grunt running', function() {
+  grunt.registerTask('express-keepalive', 'Keep grunt running', function () {
     this.async();
   });
 
@@ -515,7 +549,7 @@ module.exports = function (grunt) {
     grunt.task.run(['serve']);
   });
 
-  grunt.registerTask('test', function(target) {
+  grunt.registerTask('test', function (target) {
     if (target === 'server') {
       return grunt.task.run([
         'env:test',
@@ -540,7 +574,7 @@ module.exports = function (grunt) {
       'autoprefixer',
       'karma'
     ]);
-  });  
+  });
 
   grunt.registerTask('build', [
     'clean:dist',
@@ -548,20 +582,17 @@ module.exports = function (grunt) {
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
-    'ngtemplates',
+    'ngtemplates', //Préchargement des templates
     'concat',
-
-
     'strip', //Suppression console.log
     'ngmin',
     'copy:dist',
     'cdnify',
     'cssmin',
     'uglify',
-
     'rev',
-    'usemin'
-
+    'usemin',
+    'htmlmin:deploy'
   ]);
 
   grunt.registerTask('heroku', function () {
