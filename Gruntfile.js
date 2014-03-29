@@ -18,6 +18,7 @@ module.exports = function (grunt) {
   //Delete console.log
   grunt.loadNpmTasks("grunt-strip");
 
+
   // Define the configuration for all the tasks
   grunt.initConfig({
 
@@ -93,6 +94,18 @@ module.exports = function (grunt) {
         options: {
           livereload: true,
           nospawn: true //Without this option specified express won't be reloaded
+        }
+      }
+    },
+
+    ngtemplates:  {
+      app:        {
+        src:      '<%= yeoman.app %>/views/partials/**.html',
+        dest:     '.tmp/scripts/template.js',
+        options:  {
+          usemin: '<%= yeoman.dist %>/public/scripts/scripts.js', // <~~ This came from the <!-- build:js --> block
+          module: 'starter',
+          prefix: 'partials/'
         }
       }
     },
@@ -535,15 +548,20 @@ module.exports = function (grunt) {
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
+    'ngtemplates',
     'concat',
+
+
     'strip', //Suppression console.log
     'ngmin',
     'copy:dist',
     'cdnify',
     'cssmin',
     'uglify',
+
     'rev',
     'usemin'
+
   ]);
 
   grunt.registerTask('heroku', function () {

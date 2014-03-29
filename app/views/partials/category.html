@@ -5,7 +5,7 @@
         </button>
     </ion-nav-buttons>
 
-  <ion-content has-header="true" has-tabs="true" has-bouncing="false">
+  <ion-content has-bouncing="false">
       <ul class="list">
           <li class="item item-thumbnail-left item-button-right" style="padding-bottom:0;padding-top: 12px;" ng-repeat="item in category.items">
               <img class="rounded" ng-src="{{item.image}}" style="cursor: pointer;" ng-click="loadItem(item.id)">

@@ -1,9 +1,8 @@
-
 <ion-view title="Ingrédients" left-buttons="leftButtons">
     <div class="bar bar-subheader">
         <div class=" alert-info" style="font-size: 18px;text-overflow: ellipsis;text-align: center;margin: auto;width: 100%;line-height: 44px;position: absolute;top: 0;right: 0;left: 0;">Sushis trouvés : <span class="badge badge-balanced">{{filteredItems.length}}</span></div>
     </div>
-    <ion-content class="has-subheader" has-header="true" has-tabs="true" has-bouncing="false" has-subheader="true">
+    <ion-content class="has-subheader" has-bouncing="false">
         <ul class="list">
             <li class="item item-checkbox ingredient hover" ng-repeat="ing in ingredients | orderBy:'text':false" ng-show="isIngredient(ing.text)" ng-click="ing.checked = !ing.checked;updateItems(ing.checked);">
                 <label class="checkbox" ng-click="updateItems(ing.checked);$event.stopImmediatePropagation();">

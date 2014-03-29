@@ -156,10 +156,6 @@ body {
   color: #66cc33;
 }
 
-.bar .title{
-  font-size: 18px;
-}
-
 .absolute-price {
   position: absolute;
   top: 190px;
@@ -268,4 +264,9 @@ li.ingredient.item{
   padding: 5px;
   opacity: 0.8;
   border-radius: 4px;
+}
+
+.item-thumbnail-left img{
+  height: 80px;
+  width:80px;
 }

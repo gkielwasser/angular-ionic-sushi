@@ -4,7 +4,7 @@
             {{categoryLabel}}
         </button>
     </ion-nav-buttons>
-    <ion-content has-header="true" has-bouncing="false" has-tabs="true" padding="false">
+    <ion-content has-bouncing="false">
         <div ng-if="item.id !== 'undefined'">
             <div class="text-center" style="position: relative;">
                 <img class="rounded" style="padding-top: 10px;" ng-src="{{item.image}}">
@@ -17,9 +17,6 @@
                 </p>
                 <!--<p style="margin-bottom: 5px">{{item.description}}</p>-->
             </div>
-
-
-
 
             <div class="list">
                 <div class="item item-button-right">
