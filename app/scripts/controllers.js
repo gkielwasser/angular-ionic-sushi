@@ -41,61 +41,17 @@ angular.module('sushi.controllers', [])
       var res = false;
 
       angular.forEach($scope.filteredItems, function (item) {
-
-        angular.forEach(item.components, function (ingredient) {
-
-          if (ingredient == ing) {
-            res = true;
-          }
-        })
+        if(_.find(item.components, function(ingredient){ return ingredient == ing; }))  res = true;
       });
       return res;
     }
   }])
 
   .controller('CartTabCtrl', ['$scope', 'CartService', '$animate', function ($scope, CartService, $animate) {
-    $scope.getAnim = function () {
-
-    }
     $scope.$watch(CartService.count, function (value, oldValue) {
-
       $scope.itemsNumber = value;
-      // $animate.addClass(element.parent().s(),'pulse',function() {// $animate.removeClass(element, 'pulsate')});
-
     })
-
   }])
-
-  .directive('pulsing', ['$animate', function ($animate) {
-    return{
-      link: function (scope, element, attrs) {
-        scope.$watch('itemsNumber', function (newVal, oldVal) {
-          //var span = angular.element(angular.element(element.parent().children()[0]).children()[1]).children()[0]));
-          console.log("watcher called", element);
-          if (newVal != oldVal) {
-            //start the animation!
-            console.log('counter changed');
-            $animate.addClass(element.parent().s(), 'pulse', function () {
-              // $animate.removeClass(element, 'pulsate')
-            });
-          }
-        })
-      }
-    }
-  }]).animation('.pulse', function () {
-    var getScope = function (e) {
-      return angular.element(e).scope();
-    };
-
-    return {
-      addClass: function (element, className, done) {
-        console.log("element", element)
-      },
-      removeClass: function (element, className, done) {
-
-      }
-    }
-  })
 
   .controller('CommandTimeCtrl', ['$scope', function ($scope) {
     $scope.days = ['Aujourdhui', 'Lundi 20 mars', 'Mardi 21 mars', 'Mercredi 22 mars', 'Jeudi 23 mars'];
@@ -125,7 +81,6 @@ angular.module('sushi.controllers', [])
 
   }])
 
-// A simple controller that shows a tapped item's data
   .controller('CategoryCtrl', ['$scope', '$stateParams', 'CategoryService', 'CartService', '$state', function ($scope, $stateParams, CategoryService, CartService, $state) {
 
     $scope.category = CategoryService.get($stateParams.categoryId);
@@ -161,7 +116,6 @@ angular.module('sushi.controllers', [])
 
   .controller('CartCtrl', ['$scope', 'CartService', '$state', function ($scope, CartService, $state) {
     $scope.$watch(CartService.getItems, function (value) {
-      console.log("cart items", value)
       $scope.items = value;
     }, true)
 

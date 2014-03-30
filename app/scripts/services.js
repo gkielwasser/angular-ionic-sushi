@@ -137,16 +137,12 @@ angular.module('sushi.services', [])
           all.push(item);
         })
       })
-      console.log("allItems", all)
       return all;
     }
 
     var exist = function (ingredient, ingredients) {
-      var found = false;
-      angular.forEach(ingredients, function (ing, index) {
-        if (ingredient == ing.text)  found = true;
-      })
-      return found;
+      if(_.find(ingredients, function(ing){ return ingredient == ing.text; }))  return true;
+      return false;
     }
 
     //Init
@@ -183,27 +179,17 @@ angular.module('sushi.services', [])
 
 
       getCategory: function (id) {
-        var cat;
-        angular.forEach(categories, function (category, index) {
-          if (category.id == id) {
-            cat = category.title;
-          }
-        })
-        return cat;
+        var label;
+        var category = _.find(categories, function(category){ return category.id == id});
+        if(category) label = category.title;
+        return label;
       },
       getItem: function (categoryId, itemId) {
         var res = null;
-        angular.forEach(categories, function (category, index) {
-          if (category.id == categoryId) {
-            angular.forEach(category.items, function (item, index) {
-              console.log("it", item)
-              if (item.id == itemId) {
-                console.log("ok")
-                res = item;
-              }
-            })
-          }
-        })
+        var category = _.find(categories, function(category){ return category.id == categoryId});
+        if(category) {
+          res = _.find(category.items, function(item){ return item.id == itemId});
+        }
         return res;
       }
     }

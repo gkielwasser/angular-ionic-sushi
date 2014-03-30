@@ -17,7 +17,6 @@
   "testPath": "test/client/spec",
   "resolutions": {
     "angular": "1.2.12",
-    "angular-sanitize": "1.2.12",
-    "ionic": "1.0.0-beta.1"
+    "angular-sanitize": "1.2.12"
   }
 }
